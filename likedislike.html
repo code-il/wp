@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>LIKEDISLIKE</title>
+        <script src="angular.min.js"></script>
+    </head>
+    <body ng-app="like">
+        <div ng-controller="like1">
+                <button type="button" ng-click="li()">LIKE</button>
+                <button type="button" ng-click="di()">DISLIKE</button>
+                <p>COUNTER:{{counter}}</p>
+        </div>
+    </body>
+    <script>
+        var myapp=angular.module('like',[])
+        myapp.controller('like1',function($scope){
+            $scope.counter=0;
+            $scope.li=function(){
+                $scope.counter=$scope.counter+1;
+            };
+            $scope.di=function(){
+                $scope.counter=$scope.counter-1;
+            };
+            $scope.count1=function(){
+                return $scope.counter;
+            };
+
+        })
+    </script>
+</html>

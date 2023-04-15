@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>SHOP</title>
+        <script src="angular.min.js"></script>
+    </head>
+    <body ng-app="shoppingapp">
+        <div ng-controller="shop1">
+            <div ng-repeat="product in products">
+            <p>name:{{ product.name }}</p>
+            <p>price:{{product.price}}</p>
+            <button type="button" onclick="">ADD</button>
+        </div>
+        </div>
+    </body>
+    <script>
+        var mainApp=angular.module("shoppingapp",[])
+
+        mainApp.controller("shop1",function($scope){
+            $scope.products=[
+                {name:'appuls',price:69},
+                {name:'apps',price:69},
+                {name:'bananas',price:69}
+            ]; 
+        })
+    </script>
+</html>

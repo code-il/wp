@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <title>Javascript</title>
+    </head>
+    <style>
+        body{
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+    <body>
+        <h1>JAVASCRIPT TIME!!!</h1>
+        <hr>
+        <button type="button" onclick="document.getElementById('demo').innerHTML=Date()">CLICK FOR DATE</button>
+        <p id="demo"></p>
+        <hr>
+        <p id="d1">HELLO THIS IS A SENTENCE</p>
+        <button type="button" onclick="document.getElementById('d1').innerHTML='hello there!!'">KILK TO CHANZE</button>
+        <hr>
+        <button type="button" onclick="document.getElementById('im1').src='lighton.png'">ON</button>
+        <img id="im1" src="lightoff.png" style="width: 100px;">
+        <button type="button" onclick="document.getElementById('im1').src='lightoff.png'">OFF</button>
+        <hr>
+        <p id="f1">THIS IS A TEXT TO CHANGE FONT STYLE</p>
+        <button type="button" onclick="document.getElementById('f1').style.fontFamily='Impact, Haettenschweiler, Arial Narrow Bold, sans-serif'">CLICK</button>
+        <button type="button" onclick="document.getElementById('f1').style.fontSize='40px'">CLICK TO CHANGE FONT SIZE</button>
+        <button type="button" onclick="document.getElementById('f1').style.color='red'">COLOUR CHANGE</button>
+        <hr>
+        <div id="b1" style="background-image: url(lightoff.png); width: 400px; height: 400px;">
+        
+            <button type="button" onclick="change1()">CLICK</button>
+
+        </div>
+        <hr>
+        <button type="button" onclick="change()">CLICK TO CHANGE</button>
+        <hr>
+        <p>
+            side1:<input id="a" type="text">
+            side2:<input id="b" type="text">
+            side3:<input id="c" type="text">
+            <button type="button" onclick="calc()">CLICK</button>
+        </p>
+        <p id="a1"></p>
+        <hr>
+            <p>Number1:<input id="n1" type="text"></p>
+            <p>Number2:<input id="n2" type="text"></p>
+            <button type="button" onclick="phlus()">CLICK</button>
+            <p id="r1"></p>
+        <hr>
+            <p>Number input:<input id="n0" type="text"></p>
+            <button type="button" onclick="rev()">CLICK</button>
+            <p id="r2"></p>
+    </body>
+    <script>
+        function change(){
+            document.body.style.backgroundColor="red";
+            document.body.style.backgroundImage="url('bg1.png')";
+        }
+        function change1(){
+            document.getElementById('b1').style.backgroundImage="url('lighton.png')";
+        }
+        function calc(){
+            var a=parseFloat(document.getElementById('a').value);
+            var b=parseFloat(document.getElementById('b').value);
+            var c=parseFloat(document.getElementById('c').value);
+            var s=(a+b+c)/2;
+            var area= Math.sqrt((s*(s-a)*(s-b)*(s-c)));
+            console.log(area);
+            document.getElementById('a1').innerHTML=area;
+        }
+        function phlus(){
+            var n1=parseFloat(document.getElementById('n1').value);
+            var n2=parseFloat(document.getElementById('n2').value);
+            var add=n1
+            if(n1==n2){
+                document.getElementById('r1').innerHTML=3*add;
+            }else{
+                document.getElementById('r1').innerHTML=add;
+            }
+        }
+        function rev(){
+            var num=parseFloat(document.getElementById('n0').value);
+            var num1=num;
+            var rev=0;
+            var check_neg=false;
+            if(num1<0){
+                check_neg=true;
+                num1=-num1;
+            }while(num1>0){
+                let rem=num1%10;
+                rev=rev*10+rem;
+                num1=parseInt(num1/10);
+            }
+            result=check_neg ? -rev : rev;
+            document.getElementById('r2').innerHTML=result;
+        }
+    </script>
+</html>

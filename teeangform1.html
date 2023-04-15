@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>ANGFORM</title>
+        <script src="angular.min.js"></script>
+    </head>
+    <body ng-app="myapp">
+        <div ng-controller="s1">
+            <p>NAME:<input type="text" ng-model="name"></p>
+            <p>SHOW:<input type="checkbox" ng-model="a1"></p>
+            <button ng-show="a1">CLICK</button>
+            <p>HIDE:<input type="checkbox" ng-model="a2"></p>
+            <button ng-hide="a2">CLICK</button>
+            <p>DISABLED<input type="checkbox" ng-model="a3"></p>
+            <button ng-disabled="a3">CLICK</button>
+            <p>SHOW HEADER<input type="checkbox" ng-model="a4"></p>
+            <h1 ng-show="a4">HELLO</h1>
+            <button ng-click="reset()">RESET</button>
+        </div>
+        <div>
+            <select ng-model="myvar">
+                <option value="dog">dog</option>
+                <option value="cat">cat</option>
+            </select>
+        </div>
+        <div ng-switch="myvar">
+            <div ng-switch-when="dog">
+                <h1>DOG</h1>
+                <p>meow</p>
+            </div>
+            <div ng-switch-when="cat">
+                <h2>CAT</h2>
+                <p>bark</p>
+            </div>
+        </div>
+        <div ng-controller="myapp">
+            
+        </div>
+
+    </body>
+    <script>
+        var myapp=angular.module("myapp",[]);
+        myapp.controller('s1',function($scope){
+            
+            $scope.reset=function(){
+                $scope.name="Ansh shourya";
+            }
+            $scope.reset();
+        })
+    </script>
+</html>

@@ -1,0 +1,19 @@
+<html>
+    <head><title></title></head>
+    <body>
+        <input id="a1" type="text" >ENTER SIZE;
+        <button type="button" onclick="print()">CLICK</button>
+        <div id="p"></div>
+    </body>
+    <script>
+        function print(){
+            var a=document.getElementById("a1").value;
+            var b=a.split(" ");
+            let c=" ";
+            for(var i=0;i<b.length;i++){
+                let word=b[i];
+                c+=word[0].toUpperCase()+b[i].substring(1);
+            }
+            document.getElementById("p").innerHTML=c;
+        }
+    </script>

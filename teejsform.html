@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <title>JSFORM</title>
+    </head>
+    <body>
+        <form onsubmit=" return validate()">
+        <label>FIRST NAME</label>
+        <input type="text" id="fname" size="10" required>
+        <span id="error"></span>
+        <br>
+        <label>LASTNAME</label>
+        <input type="text" id="lname">
+        <br>
+        <label>USERNAME</label>
+        <input type="text" id="uname">
+        <br>
+        <label>EMAIL</label>
+        <input type="email" id="email">
+        <br>
+        <label>PASSWORD</label>
+        <input type="password" id="pwd">
+        <br>
+        <label>REPASS</label>
+        <input type="password" id="re">
+        <br>
+        <label>CHECKBOX</label>
+        <input type="checkbox" name="first" id="cb1" checked>ch1
+        <input type="checkbox" name="second" id="cb2">ch2
+        <br>
+        <label>RADIOBUTTONS</label>
+        <input type="radio" name="r1" id="r1" >r1;
+        <input type="radio" name="r2" id="r2" >r2;
+        <br>
+        <label>Select</label>
+        <select type="text" id="m" value="">
+            <option>Select</option>
+            <option>cats</option>
+            <option>dogs</option>
+        </select>
+        <br>
+        <button type="submit" onclick="validate()">submit</button>
+    </body>
+    <script>
+       function validate(){ 
+        var fname=document.getElementById("fname").value;
+        var lname=document.getElementById('lname').value;
+        var uname=document.getElementById('uname').value;
+        var email=document.getElementById("email").value;
+        var pass=document.getElementById('pwd').value;
+        var re=document.getElementById('re').value;
+        var ch1=document.getElementById('cb1');
+        var ch2=document.getElementById('cb2');
+        var r1=document.getElementById('r1');
+        var menu=document.getElementById("m").value;
+        if(fname.length<2){
+            var er="length is small";
+            document.getElementById("error").innerHTML=er;
+            return false;
+        }
+        if(fname==""||fname==null){
+            window.alert("empty firstname");
+            return false;
+        }
+        if(!/[A-Z]/.test(fname[0])){
+            window.alert("FIRST NAME FIRST CHAR SHOULD BE UPPER");
+            return false;
+        }
+        if(lname==""||lname==null){
+            window.alert("LAST NAME CANNOT BE NULL");
+            return false;
+        }
+        if(uname==""||uname==null){
+            window.alert("LAST NAME CANNOT BE NULL");
+            return false
+        }
+        if(!/^[A-Z][a-zA-Z]*$/.test(uname)){
+            window.alert("uppercase first char username");
+            return false;
+        }
+        if(email==""||email==null){
+            window.alert("EMAIL required");
+            return false;
+        }
+        if(!/^[a-zA-Z0-9]+@[a-zA-Z]*$/.test(email)){
+            window.alert("ENter valid email");
+
+        }
+        if(!/^[a-zA-Z0-9]{5,15}$/.test(pass)){
+            window.alert("invalid pass");
+            return false;
+        }
+        if(re!=pass){
+            window.alert("COnfirm is wrong");
+            return false;
+        }
+        if(!ch1.checked||!ch2.checked){
+            window.alert("Select one checkbox");
+            return false;
+        }
+        if(menu.value=="Select"){
+            window.alert("pls select");
+            return(false);
+
+        }
+        return true;
+    }
+    </script>
+</html>

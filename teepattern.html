@@ -1,0 +1,21 @@
+<html>
+    <head><title></title></head>
+    <body>
+        <input id="a1" type="text" >ENTER SIZE;
+        <button type="button" onclick="print()">CLICK</button>
+        <div id="p"></div>
+    </body>
+    <script>
+        function print(){
+           var pattern="";
+            var s=parseInt( document.getElementById("a1").value);
+            for(var i=0;i<s;i++){
+                for(var j=0;j<(i+1);j++){
+                    pattern +="* ";
+                }
+                pattern +="<br>";
+             }
+            document.getElementById("p").innerHTML=pattern;
+        }
+    </script>
+</html>

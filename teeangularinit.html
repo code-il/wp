@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>ANGU</title>
+        <script src="angular.min.js"></script>
+    </head>
+    <body ng-app="">
+        <div ng-init="subject=[ {name:'ansh',number:69},
+                                {name:'shourya',number:48},
+                                {name:'shyam',number:55}]">
+                                <div ng-repeat="sub in subject">
+                                    <p>{{sub.name}}</p>
+                                    <p>{{sub.number}}</p>
+                                </div>
+                            </div>  
+    </body>
+</html>

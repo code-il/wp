@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>TEEANG</title>
+        <script src="angular.min.js"></script>
+    </head>
+    <body>
+        <!--<div ng-app="">
+            <p>Name:<input type="text" ng-model="name"></p>
+            <p ng-bind="name"></p>
+        </div>
+        <div ng-app="" ng-init="firstname='pratyush'">
+            <p ng-bind="firstname"></p>
+            <p>the name is<span ng-bind="firstname"></span></p>
+            <p>Name:<input type="text" ng-model="name"></p>
+            <p>{{name}}</p>
+        </div>-->
+        <div ng-app="myapp">
+            <div ng-controller="s1">
+                <div ng-repeat="sub in subject">
+                    <p>{{sub.name}}</p>
+                    <p>{{sub.number}}</p>
+                </div>        
+            </div>
+        </div>
+    </body>
+    <script>
+        var myapp=angular.module('myapp',[]);
+        myapp.controller('s1',function($scope){
+            $scope.subject=[{name:'aadil',number:898989},
+                            {name:'pratyush',number:7894561},
+                            {name:'vidit',number:785462}];               
+        })
+    </script>
+</html>

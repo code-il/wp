@@ -1,0 +1,51 @@
+<html>
+    <head><title></title></head>
+    <body>
+        <table id="t1">
+            <tr>
+                <th>STUDENT NAME</th>
+                <th>STUDENT MARKS</th>
+            </tr>
+            <tr>
+                <td>VIDIT</td>
+                <td><input type="text" id="x1"></td>
+            </tr>
+            <tr>
+                <td>AnshT</td>
+                <td><input type="text" id="x2"></td>
+            </tr>
+            <tr>
+                <td>Aryan</td>
+                <td><input type="text" id="x3"></td>
+            </tr>
+        </table>
+        <button type="button" onclick="compute()">Click</button>
+    </body>
+    <script>
+        function compute(){
+            var table=document.getElementById("t1");
+            var headerRow=table.rows[0];
+            var headerCell=headerRow.insertCell(-1);
+            headerCell.innerHTML="<b>grades</b>";
+            for(var i=0;i<3;i++){
+                var stud_id="x"+((i+1).toString());
+                var avg=parseFloat(document.getElementById(stud_id).value);
+                var grade = "";
+                if (avg < 60)
+                    grade = "F";
+                else if (avg >= 60 && avg < 70)
+                    grade = "D"
+                else if (avg >= 70 && avg < 80)
+                    grade = "C"
+                else if (avg >= 80 && avg < 90)
+                    grade = "B"
+                else if (avg >= 90 && avg <= 100)
+                    grade = "A"
+                else
+                    grade = "Invalid"
+                var newCell=table.rows[i+1].insertCell(-1);
+                newCell.innerHTML=grade;
+            }
+        }
+    </script>
+</html>

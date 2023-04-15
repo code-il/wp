@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>SIGNUP</title>
+        <script src="angular.min.js"></script>
+    </head>
+    <body ng-app="s1">
+        <form method="post" name="regForm" ng-app="s1" ng-controller="s1c" novalidate>
+            <label for="first name">FIRST NAME</label>
+            <input type="text" name="f_name" id="f_name" ng-model="Formdata.f_name" ng-pattern="/^[a-zA-z]+$/" required>
+            <div ng-show="regForm.f_name.$touched && regForm.f_name.$error.required">ENTER NAME!!</div>
+            <div ng-show="regForm.f_name.$error.pattern">NO NUMBERS AND CHARACTERS</div>
+            <hr>
+            <label for="last name">LAST NAME</label>
+            <input type="text" name="l_name" id="l_name" ng-model="Formdata.l_name" ng-pattern="/^[a-zA-z]+$/" required>
+            <div ng-show="regForm.l_name.$touched && regForm.l_name.$error.required">ENTER NAME!!</div>
+            <div ng-show="regForm.l_name.$error.pattern">NO NUMBERS AND CHARACTERS</div>
+            <hr>
+            <label for="username">USERNAME</label>
+            <input type="text" name="username" id="username" ng-model="username" ng-minlength="5" required>
+            <div ng-show="regForm.username.$touched && regform.username.$error.required">REQUIRED USERNAME</div>
+            <div ng-show="regForm.username.$error.minlength">MINIMUM LENGTH IS 5</div>
+            <hr>
+            <label for="email">EMAIL</label>
+            <input type="email" name="email" id="name" ng-model="email" required>
+            <div ng-show="regForm.email.$touched && regForm.email.$error.required">EMAIL NEEDED</div>
+            <div ng-show="regForm.email.$error.email">ENTER VALID EMAIL</div>
+            <hr>
+            <label for="password">PASSWORD</label>
+            <input type="password" name="password" id="password" ng-model="password" ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#\$%\^&\*])(?=.{5,})/" required>
+            <div ng-show="regForm.password.$touched && regForm.password.$error.required">PASSWORD NEEDED</div>
+            <div ng-show="regForm.password.$error.pattern">PASSWORD NEEDS ONE CHARACTER</div>
+            <input type="submit" value="regForm" ng-disabled="regForm.$invalid">
+        </form> 
+
+    </body>
+    <script>
+        var myapp=angular.module("s1",[]);
+        myapp.controller("s1c",function($scope){
+            $scope.Formdata={};
+        });
+    </script>
+</html>
